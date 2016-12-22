@@ -128,7 +128,10 @@ public class App {
                 
                 String title = myreader.nextLine();
                 newcourse.setClasstitle(title);
+                System.out.println("Enter credit hours"); 
                 
+                int hrs = myreader.nextInt();
+                newcourse.setCreditHours(hrs);
      
             }
             
@@ -142,7 +145,63 @@ public class App {
         obj.updateTeacher(teach);
     }
     
+    public static void addCourse(CourseDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        
+ 
+        
+        
+            Course newcourse = new Course();
+            
+                System.out.println("Enter course name");
+
+        String title = myreader.nextLine();
+        newcourse.setClasstitle(title);
+        System.out.println("Enter credit hours");
+
+        int hrs = myreader.nextInt();
+        newcourse.setCreditHours(hrs);
+     
+        
+            
+            
+        
+        
+        
+        
+        
+        obj.addCourse(newcourse);
+    }
     
+    public static void updateCourse(CourseDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        
+ 
+        
+        
+            Course newcourse = new Course();
+            
+                System.out.println("Enter course name");
+
+        String title = myreader.nextLine();
+        newcourse.setClasstitle(title);
+        System.out.println("Enter credit hours");
+
+        int hrs = myreader.nextInt();
+        newcourse.setCreditHours(hrs);
+     
+        
+            
+            
+        
+        
+        
+        
+        
+        obj.updateCourse(newcourse);
+    }
     
     
     public static void main(String[] args) {
@@ -182,6 +241,12 @@ public class App {
             case 2:
                  updateClo(clodao);
                  break;
+            case 3:
+                addCourse(cdao);
+                break;
+            case 4:
+                updateCourse(cdao);
+                break;
             case 5:
                 addTeacher(tdao);
                 break;
