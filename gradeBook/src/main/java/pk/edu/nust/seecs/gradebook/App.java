@@ -15,6 +15,8 @@ import pk.edu.nust.seecs.gradebook.dao.StudentDao;
 import pk.edu.nust.seecs.gradebook.dao.TeacherDao;
 import pk.edu.nust.seecs.gradebook.entity.Clo;
 import pk.edu.nust.seecs.gradebook.entity.Course;
+import pk.edu.nust.seecs.gradebook.entity.Grade;
+import pk.edu.nust.seecs.gradebook.entity.Student;
 import pk.edu.nust.seecs.gradebook.entity.Teacher;
 
 /**
@@ -47,6 +49,7 @@ public class App {
 
         
     }
+    
     public static void updateClo(CloDao obj)
     {
         
@@ -203,6 +206,118 @@ public class App {
         obj.updateCourse(newcourse);
     }
     
+    public static void addStudent(StudentDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        System.out.println("Enter name"); 
+
+        String a = myreader.nextLine();
+        // Add new clo
+        Student stu = new Student();
+        stu.setName(a);
+        
+        System.out.println("Enter no of courses"); 
+        int av = myreader.nextInt();
+        Set<Course> newcourses = new HashSet<>(0);
+        for(int i=0; i<av;i++)
+        {
+            Course newcourse = new Course();
+            for(int j=0; j<av;j++)
+            {
+                System.out.println("Enter course name"); 
+                
+                String title = myreader.nextLine();
+                newcourse.setClasstitle(title);
+                
+                System.out.println("Enter credit hours"); 
+                
+                int hrs = myreader.nextInt();
+                newcourse.setCreditHours(hrs);
+     
+            }
+            
+            newcourses.add(newcourse);
+        }
+        
+        stu.setCourses(newcourses);
+        
+        obj.addStudent(stu);
+
+        
+    }
+    
+    public static void updateStudent(StudentDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        System.out.println("Enter name"); 
+
+        String a = myreader.nextLine();
+        // Add new clo
+        Student stu = new Student();
+        stu.setName(a);
+        
+        System.out.println("Enter no of courses"); 
+        int av = myreader.nextInt();
+        Set<Course> newcourses = new HashSet<>(0);
+        for(int i=0; i<av;i++)
+        {
+            Course newcourse = new Course();
+            for(int j=0; j<av;j++)
+            {
+                System.out.println("Enter course name"); 
+                
+                String title = myreader.nextLine();
+                newcourse.setClasstitle(title);
+                
+                System.out.println("Enter credit hours"); 
+                
+                int hrs = myreader.nextInt();
+                newcourse.setCreditHours(hrs);
+     
+            }
+            
+            newcourses.add(newcourse);
+        }
+        
+        stu.setCourses(newcourses);
+        
+        obj.updateStudent(stu);
+
+    }
+    
+    public static void addGrade(GradeDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        
+        Grade grd = new Grade();
+        System.out.println("Enter grade");
+
+        String gr = myreader.nextLine();
+        grd.setName(gr);
+        System.out.println("Enter score");
+
+        int src = myreader.nextInt();
+        grd.setScore(src);
+    
+        obj.addGrade(grd);
+    }
+    
+    public static void updateGrade(GradeDao obj)
+    {
+        Scanner myreader = new Scanner(System.in);
+        
+        Grade grd = new Grade();
+        System.out.println("Enter grade");
+
+        String gr = myreader.nextLine();
+        grd.setName(gr);
+        System.out.println("Enter score");
+
+        int src = myreader.nextInt();
+        grd.setScore(src);
+    
+        obj.updateGrade(grd);
+    }
     
     public static void main(String[] args) {
         
@@ -227,6 +342,7 @@ public class App {
         System.out.println("12. update grades"); 
         System.out.println("Enter a number: "); 
         int a = reader.nextInt();
+        //objects of all the database tables
         CloDao clodao = new CloDao();
         TeacherDao tdao = new TeacherDao();
         StudentDao stddao = new StudentDao();
@@ -252,6 +368,12 @@ public class App {
                 break;
             case 6:
                 updateTeacher(tdao);
+                break;
+            case 7:
+                addStudent(stddao);
+                break;
+            case 8:
+                updateStudent(stddao);
                 break;
             default:
                 break;
