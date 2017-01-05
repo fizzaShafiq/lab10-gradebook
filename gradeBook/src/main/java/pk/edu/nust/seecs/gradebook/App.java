@@ -321,9 +321,6 @@ public class App {
     
     public static void main(String[] args) {
         
-        
-        
-       
         // Delete an existing clo
         //dao.deleteClo(1);
         Scanner reader = new Scanner(System.in); // Reading from System.in 
