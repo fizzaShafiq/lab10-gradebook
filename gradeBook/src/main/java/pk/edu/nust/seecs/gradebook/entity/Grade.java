@@ -70,5 +70,6 @@ public class Grade implements java.io.Serializable {
     public String toString() {
         return "Grade{" + "gradeId=" + gradeId + ", name=" + name + ", score=" + score + ", contentItem=" + contentItem + '}';
     }
+   
     
 }

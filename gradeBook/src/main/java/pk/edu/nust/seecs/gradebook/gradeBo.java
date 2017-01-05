@@ -5,10 +5,21 @@
  */
 package pk.edu.nust.seecs.gradebook;
 
+import java.util.Scanner;
+import pk.edu.nust.seecs.gradebook.dao.GradeDao;
+import pk.edu.nust.seecs.gradebook.entity.Grade;
+
 /**
  *
  * @author shafiq
  */
-public class gradeBo {
+public interface gradeBo {
     
+    /**
+     *
+     * @param obj
+     */
+    public void addGrade(String name, int score);
+    
+   
 }
